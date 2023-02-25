@@ -22,11 +22,12 @@ PrintArray(numbers);
 
 void FillArray(double[,] array)
 {
+    Random rand = new Random();
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(-99, 99)/10.0;
+            array[i, j] = Math.Round(rand.Next(-100, 100) * 0.1, 1);
         }
     }
 }
@@ -37,10 +38,9 @@ void PrintArray(double[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{Math.Round(array[i, j],2)}" + "\t");
+            Console.Write(array[i, j] + "\t");
         }
         Console.WriteLine();
     }
 }
-
 
